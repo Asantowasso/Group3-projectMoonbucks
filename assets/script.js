@@ -2,5 +2,8 @@
 // Use an API for music
 //Create a system to take orders place in a modal
 
-var drinks = ["Coffee", "Tea", ""]
+var drinks = ["Coffee", "Tea", "Juice"]
 var sizes = ["small", "medium", "large"]
+
+//Add functionality to the modal
+

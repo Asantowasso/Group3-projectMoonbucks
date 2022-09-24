@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Moonbucks</title>
 </head>
 
@@ -12,6 +13,7 @@
 <!--links for Mission Statement, menu, locations, cart-->
 <nav>
 <ul class="Nav_links">
+<li class="moontitle">Moonbucks</li>
 <li><a href="#MissionStatement">Mission Statement</a></li>
 <li><a href="#menu">Menu</a></li>
 <li><a href="#locations">Locations</a></li>
@@ -22,14 +24,24 @@
 
 <!--Mission Statement-->
 <!--modal-->
-<button id="orderBtn">Order Here</button>
+<div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <p>Modal JS example</p>
+        <!-- Your content -->
+      </div>
+    </div>
+  
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
 
-<div id="OrderModal" class="modal"
-
-<div class="modal-content">
-<span class="close">Text</span>
-<p>What are you having today?</p>
-</div>
+  <button class="js-modal-trigger" data-target="modal-js-example">
+    Open JS example modal
+  </button>
+  
+  
 
 <!--Menu-->
 
@@ -37,6 +49,10 @@
 
 
 <!--Map Api-->
-    
+
+
+<script src="assets/script.js"></script>    
 </body>
+
+
 </html>
