@@ -4,83 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Moonbucks</title>
 </head>
 
 <body>
-<!--Navbar-->
-<!--links for Mission Statement, menu, locations, cart-->
-<nav>
-    <ul class="Nav_links">
-        <li><a href="#missionStatement">Mission Statement</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#locations">Locations</a></li>
-        <li><a href="#cart">Cart</a></li>
+
+    <!--Header-->
+<div class="container content is-large custom_header">
+    <h1 class="p-3 has-text-white">Moonbucks</h1>
+</div>
+
+    <!--Navbar-->
+    <!--links for Mission Statement, menu, locations, cart-->
+<nav class="container content is-medium" id="nav_links">
+    <ul class="columns has-text-centered">
+        <li class="column"><a href="#mission_statement">Mission Statement</a></li>
+        <li class="column"><a href="#menu">Menu</a></li>
+        <li class="column"><a href="#locations">Locations</a></li>
+        <li class="column"><a href="#cart">Cart</a></li>
     </ul>
 </nav>
 
 
 <!--Mission Statement-->
-<div id="missionStatement">
-    <h2>Our Mission</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam accusantium nemo dicta velit dolor illo rerum, voluptatibus, eius laudantium nisi quaerat quam obcaecati quod unde. Expedita suscipit officia inventore sunt?</p>
+<div class="container content is-medium pt-6 custom_border_box" id="mission_statement">
+    <h2 class="has-text-centered">Our Mission</h2>
+    <p class="p-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam accusantium nemo dicta velit dolor illo rerum, voluptatibus, eius laudantium nisi quaerat quam obcaecati quod unde. Expedita suscipit officia inventore sunt?</p>
 </div>
 
 <!--modal-->
-<button id="orderBtn">Order Here</button>
+<div class="container pt-6">
+    <button id="orderBtn">Order Here</button>
 
-<div id="OrderModal" class="modal"></div>
+    <div id="OrderModal" class="modal"></div>
 
-<div class="modal-content">
-    <span class="close">Text</span>
-    <p>What are you having today?</p>
+    <div class="modal-content">
+        <span class="close">Text</span>
+        <p>What are you having today?</p>
+    </div>
 </div>
 
 <!--Menu-->
-<div id="menu">
-    <h2>Menu</h2>
-    <div class="menuItem">
-        <img>
-        <h4>Coffee</h4>
-        <p>Coffee Description</p>
-        <button id="addBtn">Add to Cart</button>
+<div id="menu" class="container custom_border_box mt-6">
+
+        <div class="columns content is-medium pt-6">
+            <h2 class="column is-full has-text-centered">Menu</h2>
+        </div>
+    
+        <div class="columns content is-medium p-6" >
+            
+            <div class="column is-half">
+                <div class="menuItem">
+                    <img>
+                    <h4>Coffee</h4>
+                    <p>Coffee Description</p>
+                    <button id="addBtn">Add to Cart</button>
+                </div>
+                <div class="menuItem">
+                    <img>
+                    <h4>Tea</h4>
+                    <p>Tea Description</p>
+                    <button id="addBtn">Add to Cart</button>
+                </div>
+                <div class="menuItem">
+                    <img>
+                    <h4>Latte</h4>
+                    <p>Latte Description</p>
+                    <button id="addBtn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <div class="menuItem">
+                    <img>
+                    <h4>Juice</h4>
+                    <p>Juice Description</p>
+                    <button id="addBtn">Add to Cart</button>
+                </div>
+                <div class="menuItem">
+                    <img>
+                    <h4>Donut</h4>
+                    <p>Donut Description</p>
+                    <button id="addBtn">Add to Cart</button>
+                </div>
+                <div class="menuItem">
+                    <img>
+                    <h4>Croissant</h4>
+                    <p>Croissant Description</p>
+                    <button id="addBtn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    
+</div>
+
+<!--Map Api-->
+<div class="container content pt-6 mt-5 custom_border_box">
+    <h2 class="has-text-centered">Our Locations</h2>
+    <div id="locations">
+        
     </div>
-    <div class="menuItem">
-        <img>
-        <h4>Tea</h4>
-        <p>Tea Description</p>
-        <button id="addBtn">Add to Cart</button>
-    </div>
-    <div class="menuItem">
-        <img>
-        <h4>Latte</h4>
-        <p>Latte Description</p>
-        <button id="addBtn">Add to Cart</button>
-    </div>
-    <div class="menuItem">
-        <img>
-        <h4>Juice</h4>
-        <p>Juice Description</p>
-        <button id="addBtn">Add to Cart</button>
-    </div>
-    <div class="menuItem">
-        <img>
-        <h4>Donut</h4>
-        <p>Donut Description</p>
-        <button id="addBtn">Add to Cart</button>
-    </div>
-    <div class="menuItem">
-        <img>
-        <h4>Croissant</h4>
-        <p>Croissant Description</p>
-        <button id="addBtn">Add to Cart</button>
+</div>
+
+<!--Cart?-->
+<div class="container content pt-6 custom_border_box" id="cart">
+    <h2 class="has-text-centered">Your Order</h2>
+    <div>
+
     </div>
 
 </div>
 
-<!--Map Api-->
-    <div id="locations">
-        
-    </div>
 </body>
 </html>

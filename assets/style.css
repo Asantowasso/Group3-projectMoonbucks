@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(249, 241, 225);
+    line-height: 1.5;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.custom_header {
+    background-color: rgb(34, 83, 107);
+}
+
+.custom_border_box {
+    border: solid;
+    border-color: #7F7F7F;
+    border-width: 2px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #B2B2B2;
+}
