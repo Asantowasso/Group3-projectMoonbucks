@@ -48,7 +48,8 @@ function displayMenu(data) {
 }
 
 //modal controls
-const orderButton = document.querySelector('#orderBtn');
+const orderButton = document.querySelector('#order');
+console.log (orderButton)
 const modalBg = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
 
