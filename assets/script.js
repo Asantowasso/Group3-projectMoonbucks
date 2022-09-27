@@ -47,8 +47,23 @@ function displayMenu(data) {
     }
 }
 
+//modal controls
+const orderButton = document.querySelector('#orderBtn');
+const modalBg = document.querySelector('.modal-background');
+const modal = document.querySelector('.modal');
+
+orderButton.addEventListener('click', () => {
+    modal.classList.add('is-active');
+});
+
+modalBg.addEventListener('click', () => {
+ modal.classList.remove('is-active');
+
+});
 
 getMenu();
+
+
 
 //allow users to add items to their car
 //show what they have in their cart
