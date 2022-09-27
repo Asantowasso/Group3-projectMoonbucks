@@ -7,7 +7,6 @@ var sizes = ["small", "medium", "large"]
 
 var menuEl = document.querySelector("#menu")
 var cartEl = document.querySelector('#cart')
-var otherMenuEl = $("#menu")
 
 
 var cart = {
