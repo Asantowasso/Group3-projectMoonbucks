@@ -2,6 +2,33 @@
 // Use an API for music
 //Create a system to take orders place in a modal
 
+var requestURL = 'https://api.exchangerate.host/latest';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+  var response = request.response;
+  console.log(response);
+  
+}
+
+//Extract data from Currency API
+
+
+
+const openButton = document.querySelector('#show-modal-btn');
+const modalBg = document.querySelector('.modal-background');
+const modal = document.querySelector('.modal');
+
+openButton.addEventListener('click', () => {
+modal.classList.add('is-active')
+})
+
+
+
+
 var drinks = ["Coffee", "Tea", ""]
 var sizes = ["small", "medium", "large"]
 
@@ -48,19 +75,9 @@ function displayMenu(data) {
 }
 
 //modal controls
-const orderButton = document.querySelector('#order');
-console.log (orderButton)
-const modalBg = document.querySelector('.modal-background');
-const modal = document.querySelector('.modal');
 
-orderButton.addEventListener('click', () => {
-    modal.classList.add('is-active');
-});
 
-modalBg.addEventListener('click', () => {
- modal.classList.remove('is-active');
 
-});
 
 getMenu();
 
