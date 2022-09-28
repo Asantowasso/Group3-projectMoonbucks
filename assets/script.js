@@ -38,6 +38,7 @@ function displayMenu(data) {
         menuHeading.textContent = data[i].title
         menuP.textContent = data[i].description
         menuBtn.setAttribute("class", "addBtn")
+        menuBtn.setAttribute("data-title", data[i].title)
         menuBtn.textContent = "Add to Cart"
         menuEl.appendChild(menuItem)
         menuItem.appendChild(menuImg)
@@ -46,6 +47,18 @@ function displayMenu(data) {
         menuItem.appendChild(menuBtn)
     }
 }
+function addToCart(event) {
+    var clickedBtn = event.target
+    // console.log(clickedBtn.getAttribute('class'))
+    if (clickedBtn.getAttribute('class') == "addBtn") {
+    //   console.log("clicked Btn")
+    // console.log(clickedBtn.getAttribute('data-title'))
+    cart.push(clickedBtn.getAttribute('data-title'))
+    console.log(cart)
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
 
+menuEl.addEventListener('click', addToCart)
 
 getMenu();
