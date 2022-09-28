@@ -14,6 +14,7 @@ request.onload = function() {
   
 }
 
+
 //Extract data from Currency API
 
 
