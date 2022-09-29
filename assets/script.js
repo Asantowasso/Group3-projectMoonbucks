@@ -17,6 +17,7 @@ var cartEl = document.querySelector('#cart')
 var cart = {
 
 }
+
 //sets the object equal to one which has been previously saved in local storage if there is one
 var savedCart = JSON.parse(localStorage.getItem("cart"));
 if (savedCart !== null) {
@@ -58,6 +59,7 @@ function displayMenu(data) {
       var menuImg = document.createElement("img")
       var menuHeading = document.createElement("h4")
       var menuP = document.createElement("p")
+      var menuPrice = document.createElement("p")
       var menuBtn = document.createElement("button")
 
       //sets the attributes and text content of each element
@@ -65,6 +67,7 @@ function displayMenu(data) {
       menuImg.setAttribute("src", data[i].image)
       menuHeading.textContent = data[i].title
       menuP.textContent = data[i].description
+      menuP.setAttribute = ("class", "price")
       menuBtn.setAttribute("class", "addBtn")
       menuBtn.setAttribute("data-title", data[i].title)
       menuBtn.textContent = "Add to Cart"
@@ -74,10 +77,22 @@ function displayMenu(data) {
       menuItem.appendChild(menuImg)
       menuItem.appendChild(menuHeading)
       menuItem.appendChild(menuP)
+      menuItem.appendChild(menuPrice)
       menuItem.appendChild(menuBtn)
         
     }
 }
+function addToCart(event) {
+    var clickedBtn = event.target
+    // console.log(clickedBtn.getAttribute('class'))
+    if (clickedBtn.getAttribute('class') == "addBtn") {
+    //   console.log("clicked Btn")
+    // console.log(clickedBtn.getAttribute('data-title'))
+    cart.push(clickedBtn.getAttribute('data-title'))
+    console.log(cart)
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
 
 function addToCart(event) {
   var clickedBtn = event.target

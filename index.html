@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19e80cb586.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script src="assets/script.js"></script>
     <link rel="stylesheet" href="./assets/style.css">
@@ -27,14 +28,25 @@
 
     <!--Header-->
 <div class="container content is-large custom_header">
-    <h1 class="p-3 has-text-white">Moonbucks</h1>
+    <span class="icon-text p-4 has-text-white ">
+        <span class="is-size-1">Moonbucks</span>
+        <span class="icon">
+            <i class="fas fa-regular fa-moon"></i>
+        </span>
+        <span class="icon">
+            <i class="fas fa-solid fa-mug-hot"></i>
+        </span>
+        <span class="icon">
+            <i class="fas fa-plane"></i>
+        </span>
+    </span> 
 </div>
 
     <!--Navbar-->
     <!--links for Mission Statement, menu, locations, cart-->
 <nav class="container content is-medium" id="nav_links">
     <ul class="columns has-text-centered">
-        <li class="column"><a href="#mission_statement">Mission Statement</a></li>
+        <li class="column"><a href="#welcome">Welcome</a></li>
         <li class="column"><a href="#menu">Menu</a></li>
         <li class="column"><a href="#locations">Locations</a></li>
         <li class="column"><a href="#cart">Cart</a></li>
@@ -43,12 +55,11 @@
 
 
 <!--Mission Statement-->
-<div class="container content is-medium pt-6 custom_border_box" id="mission_statement">
-    <h2 class="has-text-centered">Our Mission</h2>
-    <p class="p-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam accusantium nemo dicta velit dolor illo rerum, voluptatibus, eius laudantium nisi quaerat quam obcaecati quod unde. Expedita suscipit officia inventore sunt?</p>
+<div class="container content is-medium pt-6 custom_border_box" id="welcome">
+    <h2 class="has-text-centered">Hello! Welcome to Moonbucks!</h2>
+    <p class="p-3 has-text-centered">Scroll down to view our extensive menu of our select gourmet coffee as well as your nearest pick-up location. <br> Click below to view our mission statement!</p>
+    <button class="m-5" id="statementBtn">Mission Statement</button>
 </div>
-
-<!--modal-->
 
 <!--Menu-->
 <div class="container custom_border_box mt-6">
@@ -57,51 +68,11 @@
             <h2 class="column is-full has-text-centered">Menu</h2>
         </div>
     
-        <div class="columns content is-medium p-6">
-            
-            <div id="menu">
+        <div class="columns content is-medium p-6"> 
+            <div class="has-text-centered" id="menu">
 
 
             </div>
-
-            <!-- <div class="column is-half">
-                <div class="menuItem">
-                    
-                </div>
-                <div class="menuItem">
-                    <img>
-                    <h4>Tea</h4>
-                    <p>Tea Description</p>
-                    <button id="addBtn">Add to Cart</button>
-                </div>
-                <div class="menuItem">
-                    <img>
-                    <h4>Latte</h4>
-                    <p>Latte Description</p>
-                    <button id="addBtn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="column is-half">
-                <div class="menuItem">
-                    <img>
-                    <h4>Juice</h4>
-                    <p>Juice Description</p>
-                    <button id="addBtn">Add to Cart</button>
-                </div>
-                <div class="menuItem">
-                    <img>
-                    <h4>Donut</h4>
-                    <p>Donut Description</p>
-                    <button id="addBtn">Add to Cart</button>
-                </div>
-                <div class="menuItem">
-                    <img>
-                    <h4>Croissant</h4>
-                    <p>Croissant Description</p>
-                    <button id="addBtn">Add to Cart</button>
-                </div>
-            </div> -->
         </div>
     
 </div>
@@ -115,8 +86,11 @@
 </div>
 
 <!--Cart?-->
-<div class="container content pt-6 custom_border_box" id="cart">
+<div class="container content pt-6 custom_border_box" >
     <h2 class="has-text-centered">Your Order</h2>
+    <ul id="cart">
+
+    </ul>
     <div>
         <h3>US dollar</h3>
         <div class="box1">Box 1</div>
