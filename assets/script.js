@@ -1,6 +1,11 @@
 //Use an API for a store locater
 // Use an API for music
 //Create a system to take orders place in a modal
+var euro
+console.log(euro)
+
+var britishpound
+console.log(britishpound)
 
 var drinks = ["Coffee", "Tea", ""]
 var sizes = ["small", "medium", "large"]
@@ -19,6 +24,18 @@ if (savedCart !== null) {
     cart = savedCart;
 }
 console.log(cart)
+
+fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR')
+.then(function(response){
+    return response.json()
+})
+.then(function(data){
+    console.log(data)
+    britishPound = data.rates.GBP
+    console.log(britishPound) 
+    euro = data.rates.EUR 
+    console.log(euro)
+})
 
 
 
