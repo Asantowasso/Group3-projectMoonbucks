@@ -12,6 +12,7 @@ var cartEl = document.querySelector('#cart')
 var cart = {
 
 }
+
 //sets the object equal to one which has been previously saved in local storage if there is one
 var savedCart = JSON.parse(localStorage.getItem("cart"));
 if (savedCart !== null) {
@@ -36,30 +37,12 @@ function getMenu() {
 function displayMenu(data) {
   //iterates through the first 10 items in the array fetched from the API and creates and appends an element for each
     for (i = 0; i < 10; i++) {
-<<<<<<< HEAD
-        var menuItem = document.createElement("div")
-        var menuImg = document.createElement("img")
-        var menuHeading = document.createElement("h4")
-        var menuP = document.createElement("p")
-        var menuBtn = document.createElement("button")
-        menuItem.setAttribute("class", "MenuItem")
-        menuImg.setAttribute("src", data[i].image)
-        menuHeading.textContent = data[i].title
-        menuP.textContent = data[i].description
-        menuBtn.setAttribute("class", "addBtn")
-        menuBtn.setAttribute("data-title", data[i].title)
-        menuBtn.textContent = "Add to Cart"
-        menuEl.appendChild(menuItem)
-        menuItem.appendChild(menuImg)
-        menuItem.appendChild(menuHeading)
-        menuItem.appendChild(menuP)
-        menuItem.appendChild(menuBtn)
-=======
       //defines the menu item element and its children
       var menuItem = document.createElement("div")
       var menuImg = document.createElement("img")
       var menuHeading = document.createElement("h4")
       var menuP = document.createElement("p")
+      var menuPrice = document.createElement("p")
       var menuBtn = document.createElement("button")
 
       //sets the attributes and text content of each element
@@ -67,6 +50,7 @@ function displayMenu(data) {
       menuImg.setAttribute("src", data[i].image)
       menuHeading.textContent = data[i].title
       menuP.textContent = data[i].description
+      menuP.setAttribute = ("class", "price")
       menuBtn.setAttribute("class", "addBtn")
       menuBtn.setAttribute("data-title", data[i].title)
       menuBtn.textContent = "Add to Cart"
@@ -76,9 +60,9 @@ function displayMenu(data) {
       menuItem.appendChild(menuImg)
       menuItem.appendChild(menuHeading)
       menuItem.appendChild(menuP)
+      menuItem.appendChild(menuPrice)
       menuItem.appendChild(menuBtn)
         
->>>>>>> ec831515f47441bc4c5df92108bcd9b345553052
     }
 }
 function addToCart(event) {
@@ -93,9 +77,6 @@ function addToCart(event) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-<<<<<<< HEAD
-menuEl.addEventListener('click', addToCart)
-=======
 function addToCart(event) {
   var clickedBtn = event.target
   console.log(clickedBtn.getAttribute('class'))
@@ -117,7 +98,6 @@ function addToCart(event) {
   
     
     updateCart(coffeName)
->>>>>>> ec831515f47441bc4c5df92108bcd9b345553052
 
   }
   
