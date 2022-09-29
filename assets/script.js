@@ -3,8 +3,9 @@
 //Create a system to take orders place in a modal
 var euro
 console.log(euro)
-var britishPound
 
+var britishpound
+console.log(britishpound)
 
 var drinks = ["Coffee", "Tea", ""]
 var sizes = ["small", "medium", "large"]
