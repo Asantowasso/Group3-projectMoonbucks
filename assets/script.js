@@ -13,19 +13,16 @@ var sizes = ["small", "medium", "large"]
 var menuEl = document.querySelector("#menu")
 var cartEl = document.querySelector('#cart')
 
-// var requestURL = 'https://api.exchangerate.host/latest?symbols=USD,GBP';
-// var request = new XMLHttpRequest();
-// request.open('GET', requestURL);
-// request.responseType = 'json';
-// request.send();
 
-// request.onload = function() {
-//   var response = request.response;
-//   console.log(response);
-//   var usDollar = response.rates.USD
-//   console.log(usDollar)
-//   var britishpound = response.rates.GBP
-// }
+var cart = {
+
+}
+//sets the object equal to one which has been previously saved in local storage if there is one
+var savedCart = JSON.parse(localStorage.getItem("cart"));
+if (savedCart !== null) {
+    cart = savedCart;
+}
+console.log(cart)
 
 fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR')
 .then(function(response){
@@ -38,20 +35,6 @@ fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR')
     euro = data.rates.EUR 
     console.log(euro)
 })
-
-
-
-
-
-var cart = {
-
-}
-//sets the object equal to one which has been previously saved in local storage if there is one
-var savedCart = JSON.parse(localStorage.getItem("cart"));
-if (savedCart !== null) {
-    cart = savedCart;
-}
-console.log(cart)
 
 
 

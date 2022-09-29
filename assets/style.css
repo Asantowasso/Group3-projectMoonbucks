@@ -16,3 +16,7 @@ body {
     box-shadow: 5px 5px 15px #B2B2B2;
 }
 
+img {
+    width: 300px;
+    padding: 15px;
+}
