@@ -24,7 +24,7 @@ if (savedCart !== null) {
 }
 console.log(cart)
 
-fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR')
+fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR?convert?from=USD&to=GBP')
 .then(function(response){
     return response.json()
 })
@@ -35,6 +35,8 @@ fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR')
     euro = data.rates.EUR 
     console.log(euro)
 })
+
+
 
 
 
