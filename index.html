@@ -79,6 +79,8 @@
     </div>
 </div>
 
+<!--input-->
+
 <!--Cart?-->
 <div class="container content pt-6 custom_border_box has-text-centered" >
     <h2>Your Order</h2>
@@ -96,6 +98,16 @@
         <label for="EUR">EUR</label>
       </form>
 
+<form id="currencyForm" class="p-3">
+    <input type="radio" id="USD" name="currency" value="USD">
+    <label for="USD">USD</label><br>
+    <input type="radio" id="GBP" name="currency" value="GBP">
+    <label for="GBP">GBP</label><br>
+    <input type="radio" id="EUR" name="currency" value="EUR">
+    <label for="EUR">EUR</label>
+    <br>
+    <button id="select">Select</button>
+  </form>
 </div>
 
 <script src="./assets/script.js"></script>
