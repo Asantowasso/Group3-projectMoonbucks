@@ -16,7 +16,7 @@ var totalEl = document.querySelector("#total")
 var orderBtn =document.querySelector("#orderBtn")
 var formEl = document.querySelector("#currencyForm")
 
-
+var modal = document.querySelector("#modal")
 
 var cart = {
 
@@ -198,6 +198,7 @@ function updateCart(chosenItem) {
 function placeOrder() {
   while (cartEl.hasChildNodes()) {
     cartEl.removeChild(cartEl.lastChild);
+    modal.setAttribute('class', 'is-active')
   }
   cart = {
 

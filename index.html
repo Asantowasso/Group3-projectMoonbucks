@@ -10,20 +10,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Moonbucks</title>
 </head>
-
-
-<div class="modal">
-<div class="modal-background"></div>
-<div class= "modal-content has-background-white py-5 px-5">
-<h3 class="title mb-6">Your Order</h3>
-<p>items</p>
-</div>
-</div>
-
 <!--Exchange Rates-->
-
-
-
 <body>
 
     <!--Header-->
@@ -53,12 +40,18 @@
     </ul>
 </nav>
 
+<div class="modal" id="modal">
+    <div class="modal-background"></div>
+    <div class= "modal-content has-text-white has-text-centered">
+        <h3 class="title mb-6 has-text-white">Thank You For Your Order!</h3>
+        <p id="cart"></p>
+    </div>
+</div>
 
 <!--Mission Statement-->
 <div class="container content is-medium pt-6 custom_border_box" id="welcome">
     <h2 class="has-text-centered">Hello! Welcome to Moonbucks!</h2>
-    <p class="p-3 has-text-centered">Scroll down to view our extensive menu of our select gourmet coffee as well as your nearest pick-up location. <br> Click below to view our mission statement!</p>
-    <button class="m-5" id="statementBtn">Mission Statement</button>
+    <p class="p-3 has-text-centered"> Our mission is simple: to bring you the best gourmet coffee flavors from around the world without compromising your busy schedule. By upholding strict standards in brewing and cleanliness, we can guarantee you'll find satisfaction in every sip! <br> Scroll down to view our extensive menu of our select gourmet coffee as well as your nearest pick-up location.</p>
 </div>
 
 
@@ -87,15 +80,21 @@
 </div>
 
 <!--Cart?-->
-<div class="container content pt-6 custom_border_box" >
-    <h2 class="has-text-centered">Your Order</h2>
-    <ul id="cart">
-
-    </ul>
-    
+<div class="container content pt-6 custom_border_box has-text-centered" >
+    <h2>Your Order</h2>
+    <ul id="cart"></ul>
     <h3>Total</h3>
-    <div class="box1" id="total"></div>
-    <button id="orderBtn">Place order</button>
+    <div id="total"></div>
+    <button class="m-5" id="orderBtn">Place order</button>
+
+    <form id="currencyForm" class="p-3">
+        <input type="radio" id="USD" name="currency" value="USD">
+        <label for="USD">USD</label><br>
+        <input type="radio" id="GBP" name="currency" value="GBP">
+        <label for="GBP">GBP</label><br>
+        <input type="radio" id="EUR" name="currency" value="EUR">
+        <label for="EUR">EUR</label>
+      </form>
 
 </div>
 
