@@ -6,24 +6,28 @@
 
 // var britishpound
 // console.log(britishpound)
+var addToCartBtn;
+var drinks = ["Coffee", "Tea", ""]
+var sizes = ["small", "medium", "large"]
 
-var drinks = ["Coffee", "Tea", ""];
-var sizes = ["small", "medium", "large"];
+var menuEl = document.querySelector("#menu")
+var cartEl = document.querySelector("#cart")
+var totalEl = document.querySelector("#total")
+var orderBtn =document.querySelector("#orderBtn")
+var formEl = document.querySelector("#currencyForm")
 
-var menuEl = document.querySelector("#menu");
-var cartEl = document.querySelector("#cart");
-var totalEl = document.querySelector("#total");
-var orderBtn = document.querySelector("#orderBtn");
-var currencyForm = document.querySelector("#currencyForm");
+var modal = document.querySelector("#modal")
 
-var cart = {};
+var cart = {
+
+}
 
 //sets the object equal to one which has been previously saved in local storage if there is one
 var savedCart = JSON.parse(localStorage.getItem("cart"));
 if (savedCart !== null) {
   cart = savedCart;
 }
-console.log(cart);
+//console.log(cart)
 
 var orderTotal = 0;
 var orderQuantity = 0;
@@ -188,7 +192,8 @@ function updateCart(chosenItem) {
       itemPresent = true;
     }
   }
-  //if there is no list item for the what the user just added to the cart, creates new one
+  //console.log(itemPresent)
+  //if there is no list item for the what the user just added to the cart, creates new one 
   if (!itemPresent) {
     var cartItem = document.createElement("li");
     cartItem.setAttribute("id", chosenItem);
@@ -203,6 +208,10 @@ function updateCart(chosenItem) {
 function placeOrder() {
   while (cartEl.hasChildNodes()) {
     cartEl.removeChild(cartEl.lastChild);
+    modal.setAttribute('class', 'is-active')
+  }
+  cart = {
+
   }
 }
 
