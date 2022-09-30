@@ -15,7 +15,7 @@ var cartEl = document.querySelector("#cart")
 var totalEl = document.querySelector("#total")
 var orderBtn =document.querySelector("#orderBtn")
 
-
+var modal = document.querySelector("#modal")
 
 var cart = {
 
@@ -36,7 +36,8 @@ for (coffee in cart) {
 var dollarPrice = 4
 var price
 
-var currencyInput = "GBP"
+var currencyInput = "USD"
+
 
 function convertCurrency() {
   fetch('https://api.exchangerate.host/latest?base=USD?symbols=GBP,EUR')
@@ -185,7 +186,9 @@ function updateCart(chosenItem) {
 function placeOrder() {
   while (cartEl.hasChildNodes()) {
     cartEl.removeChild(cartEl.lastChild);
+    modal.setAttribute('class', 'is-active')
   }
+    
 }
 
 convertCurrency()
