@@ -6,7 +6,7 @@
 
 // var britishpound
 // console.log(britishpound)
-
+var addToCartBtn;
 var drinks = ["Coffee", "Tea", ""]
 var sizes = ["small", "medium", "large"]
 
@@ -14,6 +14,7 @@ var menuEl = document.querySelector("#menu")
 var cartEl = document.querySelector("#cart")
 var totalEl = document.querySelector("#total")
 var orderBtn =document.querySelector("#orderBtn")
+var formEl = document.querySelector("#currencyForm")
 
 var modal = document.querySelector("#modal")
 
@@ -26,7 +27,7 @@ var savedCart = JSON.parse(localStorage.getItem("cart"));
 if (savedCart !== null) {
     cart = savedCart;
 }
-console.log(cart)
+//console.log(cart)
 
 var orderTotal = 0
 var orderQuantity = 0
@@ -37,6 +38,10 @@ var dollarPrice = 4
 var price
 
 var currencyInput = "USD"
+//var currencyData
+
+var cartDisplayed = false
+
 
 
 function convertCurrency() {
@@ -46,31 +51,28 @@ function convertCurrency() {
   })
   .then(function(data){
     console.log(data)
+    currencyData = data
+    //console.log(currencyInput)
+    //console.log(data.rates[currencyInput])
     var unroundedPrice = dollarPrice * data.rates[currencyInput]
     price = +unroundedPrice.toFixed(2)
-    console.log(price)
-    /*britishPound = data.rates.GBP
-    console.log(britishPound) 
-    euro = data.rates.EUR 
-    console.log(euro)*/
+    //console.log(price)
+    
     displayCart()
   })
 }
 
-
-
-
-function getMenu() {
-    fetch('https://api.sampleapis.com/coffee/hot')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    displayMenu(data)
-  });
-}
-
+/*function selectCurrency(event) {
+  console.log("select currency")
+  var clickedBtn = event.target
+  currencyInput = clickedBtn.getAttribute("name")
+ 
+  
+  for (i = 0; i < prices.length; i++) {
+    var itemPrice = document.querySelector("#price" + i) 
+    itemPrice.textContent = price + " " + currencyInput
+   }
+}*/
 
 function displayMenu(data) {
   //iterates through the first 10 items in the array fetched from the API and creates and appends an element for each
@@ -89,42 +91,48 @@ function displayMenu(data) {
       menuHeading.textContent = data[i].title
       menuP.textContent = data[i].description
       menuPrice.setAttribute = ("class", "price")
+      menuPrice.setAttribute = ("id", i)
       menuPrice.textContent = price + " " + currencyInput
       menuBtn.setAttribute("class", "addBtn")
       menuBtn.setAttribute("data-title", data[i].title)
       menuBtn.textContent = "Add to Cart"
 
       //appends the menu item to the menu and appends the other elements to the menu item
-      menuEl.appendChild(menuItem)
       menuItem.appendChild(menuImg)
       menuItem.appendChild(menuHeading)
       menuItem.appendChild(menuP)
       menuItem.appendChild(menuPrice)
       menuItem.appendChild(menuBtn)
-        
+      menuEl.appendChild(menuItem)
+
     }
+    addEventListeners();
+
 }
-function addToCart(event) {
-    var clickedBtn = event.target
-    // console.log(clickedBtn.getAttribute('class'))
-    if (clickedBtn.getAttribute('class') == "addBtn") {
-    //   console.log("clicked Btn")
-    // console.log(clickedBtn.getAttribute('data-title'))
-    cart.push(clickedBtn.getAttribute('data-title'))
-    //console.log(cart)
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
+
+function getMenu() {
+    fetch('https://api.sampleapis.com/coffee/hot')
+  .then(function (response) {
+    //console.log(response);
+    return response.json();
+  })
+  .then(function (data) {
+    //console.log("get menu data : ",data);
+    displayMenu(data)
+  });
+}
+
+
+
 
 function addToCart(event) {
   var clickedBtn = event.target
-  console.log(clickedBtn.getAttribute('class'))
   //if the element the user clicked is an "add to cart" button
   if (clickedBtn.getAttribute('class') == "addBtn") {
-    console.log("clicked Btn")
+    //console.log("clicked Btn")
     //gets the name of the item the user ordered which was stored in the button's "data-title" attribute
     var coffeName = clickedBtn.getAttribute('data-title')
-    console.log(coffeName)
+    //console.log(coffeName)
    
     //increments the value of the property of the cart object which has the name of the item the user chose or sets that property equal to 1 if it has not been chosen before
     if (cart[coffeName]) {
@@ -145,16 +153,19 @@ function addToCart(event) {
 }
 
 function displayCart() {
-  //iterates through the cart object and creates and appends a list item containing each property and value
-  for (var coffee in cart) {
-    var cartItem = document.createElement("li")
-    cartItem.setAttribute('id', coffee)
-    cartItem.setAttribute('class', 'cartItem')
-    cartItem.textContent = coffee + " (" + cart[coffee] + ")" 
-    //console.log(cartItem)
-    cartEl.appendChild(cartItem)
+  if (!cartDisplayed) {
+    //iterates through the cart object and creates and appends a list item containing each property and value
+    for (var coffee in cart) {
+      var cartItem = document.createElement("li")
+      cartItem.setAttribute('id', coffee)
+      cartItem.setAttribute('class', 'cartItem')
+      cartItem.textContent = coffee + " (" + cart[coffee] + ")" 
+      cartEl.appendChild(cartItem)
+    }
   }
-  console.log(price)
+  
+  cartDisplayed = true
+  
   totalEl.textContent = orderQuantity * price + " " + currencyInput
 }
 
@@ -171,6 +182,7 @@ function updateCart(chosenItem) {
       itemPresent = true
     }
   }
+  //console.log(itemPresent)
   //if there is no list item for the what the user just added to the cart, creates new one 
   if (!itemPresent) {
     var cartItem = document.createElement("li")
@@ -188,11 +200,16 @@ function placeOrder() {
     cartEl.removeChild(cartEl.lastChild);
     modal.setAttribute('class', 'is-active')
   }
-    
+  cart = {
+
+  }
 }
 
 convertCurrency()
 getMenu()
 
+function addEventListeners(){
 menuEl.addEventListener('click', addToCart)
 orderBtn.addEventListener('click', placeOrder)
+//formEl.addEventListener('click', selectCurrency)
+}
