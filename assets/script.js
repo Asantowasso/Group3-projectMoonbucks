@@ -1,15 +1,3 @@
-//Use an API for a store locater
-// Use an API for music
-//Create a system to take orders place in a modal
-// var euro
-// console.log(euro)
-
-// var britishpound
-// console.log(britishpound)
-var addToCartBtn;
-var drinks = ["Coffee", "Tea", ""]
-var sizes = ["small", "medium", "large"]
-
 var menuEl = document.querySelector("#menu")
 var cartEl = document.querySelector("#cart")
 var totalEl = document.querySelector("#total")
